@@ -7,7 +7,6 @@ This project has a propose to create dafault docker settings for projects to set
 
 ```
 git clone git@github.com:gustavosantiago/docker-on-project.git
-
 ```
 
 - Then, chose your docker setting according with programming code and your project version
