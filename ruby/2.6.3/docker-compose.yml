@@ -1,0 +1,32 @@
+version: '3.2'
+
+services:
+  database:
+    image: postgres:11.5-alpine
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - pg_volume:/var/lib/postgresql/data:cached
+
+  redis:
+    image: redis:5.0.5-alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+  
+  web:
+    build: .
+    container_name: web
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+    tty: true
+
+volumes:
+  pg_volume:
+    external: true
+    
