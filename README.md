@@ -1,6 +1,6 @@
 ## Objective
 
-This project has a propose to create dafault docker settings for projects to setting the same into a docker's container. There will be no worry about controlling language versions on your computer, not taking so long setting up a workspace
+This project has a propose to create a default docker settings for projects to setting the same into a docker's container. There will be no worry about controlling language versions on your computer, not taking so long setting up a workspace
 
 ## How works?
 - Download the project
