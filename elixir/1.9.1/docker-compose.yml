@@ -1,0 +1,19 @@
+version: '3.2'
+
+services:
+  elixir_database:
+    image: postgres:11.5-alpine
+    container_name: elixir_database
+    ports:
+      - 5432:5432
+
+  elixir_app:
+    build: .
+    container_name: elixir_app
+    volumes:
+      - .:/app
+    ports:
+      - 4000:4000
+    depends_on:
+      - elixir_database
+    tty: true
