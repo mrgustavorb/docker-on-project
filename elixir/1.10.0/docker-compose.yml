@@ -1,16 +1,20 @@
-version: '3.2'
+version: '3.7'
 
 services:
   elixir_database:
-    image: postgres:11.5-alpine
+    image: postgres:12.2-alpine
     container_name: elixir_database
     ports:
       - 5432:5432
     volumes:
-      - pg_volume:/var/lib/postgresql/data:cached
+      - elixir_pg_database:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
 
   elixir_app:
-    build: .
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     container_name: elixir_app
     volumes:
       - .:/app
@@ -21,5 +25,5 @@ services:
     tty: true
 
 volumes:
-  pg_volume:
+  elixir_pg_database:
     external: true

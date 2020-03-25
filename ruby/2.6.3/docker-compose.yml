@@ -14,7 +14,7 @@ services:
     container_name: redis
     ports:
       - 6379:6379
-  
+
   web:
     build: .
     container_name: web
@@ -29,4 +29,3 @@ services:
 volumes:
   pg_volume:
     external: true
-    

@@ -1,21 +1,21 @@
-FROM elixir:1.9.1-alpine
+FROM elixir:1.10-alpine
 
 WORKDIR /app
 
 RUN apk update && \
     apk add --update build-base \
-		postgresql-client \
-		tzdata \
+    postgresql-dev \
+    tzdata \
     inotify-tools \
-		musl \
-		musl-dev \
-		musl-utils \
+    musl \
+    musl-dev \
+    musl-utils \
     nodejs \
-		yarn
+    yarn
 
 RUN mix local.hex --force
 RUN mix local.rebar --force
 
-RUN mix archive.install --force hex phx_new 1.4.9
+RUN mix archive.install --force hex phx_new 1.4.16
 
 EXPOSE 4000
